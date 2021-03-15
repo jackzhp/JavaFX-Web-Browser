@@ -1,6 +1,6 @@
 package main.java.com.goxr3plus.javafxwebbrowser.settings;
 
-// TODO
+//TODO
 public class SettingsWindow {
 	
 }

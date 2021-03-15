@@ -12,17 +12,17 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTabPane;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.StackPane;
 import main.java.com.goxr3plus.javafxwebbrowser.tools.InfoTool;
 
 /**
- * @author Electron Tech! , GOXR3PLUS STUDIO
+ * @author GOXR3PLUS
  *
  */
 public class WebBrowserController extends StackPane {
@@ -30,46 +30,19 @@ public class WebBrowserController extends StackPane {
 	/** The logger. */
 	private final Logger logger = Logger.getLogger(getClass().getName());
 	
+	public static final String VERSION = "Version 3.5.0";
+	
 	public static boolean MOVING_TITLES_ENABLED = true;
 	
 	//------------------------------------------------------------
+	@FXML
+	private Button showVersion;
 	
-    @FXML
-    private JFXTabPane tabPane;
-
-    @FXML
-    private JFXButton youtube;
-
-    @FXML
-    private JFXButton soundCloud;
-
-    @FXML
-    private JFXButton facebook;
-
-    @FXML
-    private JFXButton printerest;
-
-    @FXML
-    private JFXButton twitter;
-
-    @FXML
-    private JFXButton linkedIn;
-
-    @FXML
-    private JFXButton dropBox;
-
-    @FXML
-    private JFXButton gmail;
-
-    @FXML
-    private JFXButton googleDrive;
-
-    @FXML
-    private JFXButton googleMaps;
-
-    @FXML
-    private JFXButton addTab;
-
+	@FXML
+	private TabPane tabPane;
+	
+	@FXML
+	private JFXButton addTab;
 	
 	// -------------------------------------------------------------
 	
@@ -103,36 +76,6 @@ public class WebBrowserController extends StackPane {
 		//addTab
 		addTab.setOnAction(a -> createAndAddNewTab());
 		
-		//Extra Stuff
-		youtube.setOnAction(a -> createTabAndSelect("https://www.youtube.com/"));
-		
-		soundCloud.setOnAction(a -> createTabAndSelect("https://www.soundcloud.com"));
-		
-		facebook.setOnAction(a -> createTabAndSelect("https://www.facebook.com"));
-		
-		printerest.setOnAction(a -> createTabAndSelect("https://www.pinterest.com"));
-		
-		twitter.setOnAction(a -> createTabAndSelect("https://www.twitter.com"));
-		
-		linkedIn.setOnAction(a -> createTabAndSelect("https://www.linkedin.com/"));
-		
-		dropBox.setOnAction(a -> createTabAndSelect("https://www.dropbox.com"));
-		
-		gmail.setOnAction(a -> createTabAndSelect("https://www.gmail.com"));
-		
-		googleDrive.setOnAction(a -> createTabAndSelect("https://www.google.com"));
-		
-		googleMaps.setOnAction(a -> createTabAndSelect("https://maps.google.com/"));
-		
-	}
-	
-	/**
-	 * Creates a new Tab and selects it
-	 * 
-	 * @param url
-	 */
-	public void createTabAndSelect(String url) {
-		tabPane.getSelectionModel().select(createAndAddNewTab(url).getTab());
 	}
 	
 	/**
@@ -168,7 +111,7 @@ public class WebBrowserController extends StackPane {
 				createAndAddNewTab();
 			
 			// Delete cache for navigate back
-			webBrowserTab.browser.load("about:blank");
+			webBrowserTab.webEngine.load("about:blank");
 			
 			//Delete cookies  Experimental!!! 
 			//java.net.CookieHandler.setDefault(new java.net.CookieManager())
@@ -333,17 +276,17 @@ public class WebBrowserController extends StackPane {
 			"https://www.gismeteo.ru", "https://www.github.com", "https://www.github.io", "https://www.givemesport.com", "https://www.gizmodo.com", "https://www.glassdoor.com",
 			"https://www.globo.com", "https://www.gmarket.co.kr", "https://www.gmw.cn", "https://www.gmx.net", "https://www.gnu.org", "https://www.go.com", "https://www.goal.com",
 			"https://www.godaddy.com", "https://www.gofundme.com", "https://www.gogoanime.io", "https://www.gomovies.to", "https://www.gongchang.com", "https://www.goo.gl",
-			"https://www.goo.ne.jp", "https://www.goodreads.com", "https://www.googleusercontent.com", "https://www.googlevideo.com", "https://www.gotporn.com",
-			"https://www.gov.uk", "https://www.gpo.gov", "https://www.grammarly.com", "https://www.gravatar.com", "https://www.grid.id", "https://www.groupon.com",
-			"https://www.gsmarena.com", "https://www.guardian.co.uk", "https://www.gutefrage.net", "https://www.gyazo.com", "https://www.haber7.com", "https://www.hamariweb.com",
-			"https://www.hao123.com", "https://www.harvard.edu", "https://www.hatena.ne.jp", "https://www.hatenablog.com", "https://www.hbr.org", "https://www.hclips.com",
-			"https://www.hdfcbank.com", "https://www.hdzog.com", "https://www.hespress.com", "https://www.hhs.gov", "https://www.hibu.com", "https://www.hilltopads.net",
-			"https://www.hilton.com", "https://www.histats.com", "https://www.hm.com", "https://www.hola.com", "https://www.hollywoodreporter.com", "https://www.home.pl",
-			"https://www.homedepot.com", "https://www.homestead.com", "https://www.hootsuite.com", "https://www.hostgator.com", "https://www.hostnet.nl", "https://www.hotels.com",
-			"https://www.hotmovs.com", "https://www.hotstar.com", "https://www.house.gov", "https://www.houzz.com", "https://www.howtogeek.com", "https://www.hp.com",
-			"https://www.href.li", "https://www.huaban.com", "https://www.huanqiu.com", "https://www.hubspot.com", "https://www.huffingtonpost.com", "https://www.hulu.com",
-			"https://www.humblebundle.com", "https://www.hurriyet.com.tr", "https://www.ibm.com", "https://www.ibtimes.com", "https://www.icann.org", "https://www.icicibank.com",
-			"https://www.icio.us", "https://www.icloud.com", "https://www.idnes.cz", "https://www.ieee.org", "https://www.ign.com", "https://www.ikea.com", "https://www.imdb.com",
+			"https://www.goo.ne.jp", "https://www.goodreads.com", "https://www.googleusercontent.com", "https://www.googlevideo.com", "https://www.gotporn.com", "https://www.gov.uk", "https://www.gpo.gov",
+			"https://www.grammarly.com", "https://www.gravatar.com", "https://www.grid.id", "https://www.groupon.com", "https://www.gsmarena.com", "https://www.guardian.co.uk",
+			"https://www.gutefrage.net", "https://www.gyazo.com", "https://www.haber7.com", "https://www.hamariweb.com", "https://www.hao123.com", "https://www.harvard.edu",
+			"https://www.hatena.ne.jp", "https://www.hatenablog.com", "https://www.hbr.org", "https://www.hclips.com", "https://www.hdfcbank.com", "https://www.hdzog.com",
+			"https://www.hespress.com", "https://www.hhs.gov", "https://www.hibu.com", "https://www.hilltopads.net", "https://www.hilton.com", "https://www.histats.com",
+			"https://www.hm.com", "https://www.hola.com", "https://www.hollywoodreporter.com", "https://www.home.pl", "https://www.homedepot.com", "https://www.homestead.com",
+			"https://www.hootsuite.com", "https://www.hostgator.com", "https://www.hostnet.nl", "https://www.hotels.com", "https://www.hotmovs.com", "https://www.hotstar.com",
+			"https://www.house.gov", "https://www.houzz.com", "https://www.howtogeek.com", "https://www.hp.com", "https://www.href.li", "https://www.huaban.com",
+			"https://www.huanqiu.com", "https://www.hubspot.com", "https://www.huffingtonpost.com", "https://www.hulu.com", "https://www.humblebundle.com",
+			"https://www.hurriyet.com.tr", "https://www.ibm.com", "https://www.ibtimes.com", "https://www.icann.org", "https://www.icicibank.com", "https://www.icio.us",
+			"https://www.icloud.com", "https://www.idnes.cz", "https://www.ieee.org", "https://www.ign.com", "https://www.ikea.com", "https://www.imdb.com",
 			"https://www.imgur.com", "https://www.imwhite.ru", "https://www.inc.com", "https://www.indeed.com", "https://www.independent.co.uk", "https://www.indianexpress.com",
 			"https://www.indiatimes.com", "https://www.indiegogo.com", "https://www.infusionsoft.com", "https://www.inquirer.net", "https://www.instagram.com",
 			"https://www.instructables.com", "https://www.instructure.com", "https://www.intel.com", "https://www.interia.pl", "https://www.internetdownloadmanager.com",
