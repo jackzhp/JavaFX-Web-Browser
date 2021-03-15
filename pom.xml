@@ -14,10 +14,10 @@
 	<packaging>jar</packaging>
 
 	<properties>
-		<maven.compiler.source>10</maven.compiler.source>
-		<maven.compiler.target>10</maven.compiler.target>
+		<maven.compiler.source>8</maven.compiler.source>
+		<maven.compiler.target>8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<ikonli.version>2.4.0</ikonli.version>
+		<ikonli.version>2.0.0</ikonli.version>
 	</properties>
 
 	<build>
@@ -57,10 +57,13 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-					<source>10</source>
-					<target>10</target>
-					<release>10</release>
-					<executable>javac10</executable>
+					<source>8</source>
+					<target>8</target>
+<!--					
+					<release>9</release>
+					this is for java9
+					 -->
+					<executable>javac8</executable>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
@@ -152,7 +155,10 @@
 		<dependency>
 			<groupId>com.jfoenix</groupId>
 			<artifactId>jfoenix</artifactId>
-			<version>9.0.6</version>
+			<!-- <version>9.0.6</version>
+			for java 8, use 8.0.10
+			 -->
+			<version>8.0.10</version>
 		</dependency>
 
 		<!-- FX-BorderlessScene -->
